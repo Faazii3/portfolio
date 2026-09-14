@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Base — reset, typography, utilities
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--ink);
+  color-scheme: dark;
+  scrollbar-gutter: stable; /* no layout jump when an overlay locks scrolling */
+}
+html.is-scroll-locked { overflow: hidden; }
+/* sections (and the reels strip) receive programmatic focus from in-page links; no ring around a whole block */
+main > section:focus, .reels:focus { outline: none; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--silver);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4, p, dl, dd, figure { margin: 0; }
+h1, h2, h3, h4 { color: var(--bone); font-weight: 500; line-height: 1.05; }
+em { font-family: var(--font-display); font-style: italic; font-weight: 400; }
+
+::selection { background: var(--saffron); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+.display em { color: var(--saffron); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--ash);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: fixed; left: 1rem; top: 1rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--saffron); color: var(--ink);
+  border-radius: 999px;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+
+/* Split-text line masks (SplitText mask: "lines", linesClass: "split"): room below each
+   line for italic descenders, cancelled by the negative margin so layout doesn't move */
+.split-mask { overflow: clip; padding-bottom: 0.2em; margin-bottom: -0.2em; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

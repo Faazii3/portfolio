@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Design tokens — every colour is sampled from (or derived from) fazil.png
+   ink #040303 backdrop · saffron #EEC072 disc · silver/bone skin highlights
+   graphite #303133 hair · charcoal #282628 shirt
+   ========================================================================== */
+:root {
+  /* ---- palette ---- */
+  --ink: #040303;
+  --ink-1: #0b0a09;
+  --ink-2: #131211;
+  --charcoal: #282628;
+  --graphite: #303133;
+  --ash: #858384;
+  --silver: #c1bfc0;
+  --bone: #e9e7e5;
+
+  --saffron: #eec072;
+  --saffron-hi: #f6d9a3;
+  --saffron-lo: #d9a24e;
+  --ember: #9a6526;
+  --saffron-wash: rgb(238 192 114 / 0.08);
+
+  --line: rgb(233 231 229 / 0.1);
+  --line-strong: rgb(233 231 229 / 0.22);
+  --line-ink: rgb(4 3 3 / 0.16);
+
+  /* ---- type ---- */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Times New Roman", serif;
+  --font-sans: "Inter Tight", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", ui-monospace, monospace;
+
+  --fs-mono: 0.75rem;
+  --fs-small: 0.875rem;
+  --fs-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  --fs-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --fs-h3: clamp(1.5rem, 1.2rem + 1.3vw, 2.5rem);
+  --fs-display: clamp(3rem, 1.6rem + 6.4vw, 8.5rem);
+  --fs-statement: clamp(1.9rem, 1rem + 3.4vw, 4.6rem);
+
+  /* ---- space & shape ---- */
+  --gutter: clamp(1.25rem, 0.6rem + 2.8vw, 3.5rem);
+  --section-y: clamp(6rem, 4rem + 9vw, 14rem);
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+
+  /* ---- motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- hero portrait geometry (from tools/make-cutout.ps1) ----
+     JS overwrites --fig-* in px; these are the no-JS fallbacks. */
+  --img-ratio: calc(937 / 896);
+  --disc-cx: 0.4971;
+  --disc-cy: 0.5235;
+  --disc-d: 0.73;
+  --fig-w: min(calc(94svh / var(--img-ratio)), 128vw);
+
+  --nav-h: 76px;
+  --z-grain: 90;
+  --z-cursor: 100;
+  --z-nav: 80;
+  --z-veil: 85;
+  --z-preloader: 120;
+}
